@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Header from "./components/Header";
-import LandingPage from "./components/LandingPage";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   const [count, setCount] = useState(0);

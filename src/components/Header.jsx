@@ -4,9 +4,9 @@ import { Button } from "./ui/button";
 
 export default function Header() {
   return (
-    <div className="h-[76px] bg-white px-[10px] text-[#37474f] flex items-center">
-      <div className="pl-[108px] pr-[30px] cursor-pointer">
-        <img className="w-[240px] h-[40px]  " src={granaLogo} alt="" />
+    <div className="h-[76px] z-50 sticky top-0 bg-white px-[10px] text-[#37474f] md:flex items-center hidden">
+      <div className="lg:pl-[108px] md:pl-[10px] md:pr-[5px]  pr-[30px] cursor-pointer">
+        <img className="w-[240px] h-[40px]" src={granaLogo} alt="" />
       </div>
       <div className="flex items-center justify-start flex-1">
         <div className="group relative inline-block text-left">
@@ -104,7 +104,7 @@ export default function Header() {
           MORE
         </Button>
       </div>
-      <div className="flex justify-end items-center mr-[108px] gap-2">
+      <div className="flex justify-end items-center md:[60px] lg:mr-[108px] gap-2">
         <Button className="bg-inherit text-[#37474f] shadow-none hover:bg-inherit font-semibold">
           WANTED
         </Button>
