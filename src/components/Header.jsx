@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 
 export default function Header() {
   return (
-    <div className="h-[76px] z-50 sticky top-0 bg-white px-[10px] text-[#37474f] md:flex items-center hidden">
+    <div className="h-[76px] z-50 sticky top-0 bg-white px-[10px] text-[#37474f] md:flex items-center hidden shadow-md">
       <div className="lg:pl-[108px] md:pl-[10px] md:pr-[5px]  pr-[30px] cursor-pointer">
         <img className="w-[240px] h-[40px]" src={granaLogo} alt="" />
       </div>

@@ -28,15 +28,15 @@ export default function Heroinvest() {
             </Button>
           </div>
         </div>
-        <div className="flex md:flex-col justify-center items-center w-full gap-3 md:gap-10 md:bg-white bg-[#f2f2f2] md:w-[420px] md:h-[460px]">
+        <div className="flex md:flex-col justify-center items-center w-full gap-3 md:gap-10 md:bg-white bg-[#f2f2f2] md:w-[420px] md:h-[460px] md:mt-12">
           <div className="md:block hidden">
             <img src={wantedimg} alt="" className="w-[230px]" />
           </div>
-          <div className="flex flex-col md:justify-center md:items-center md:gap-10 gap-3 md:mt-0 mt-6 md:w-[420px] w-[145px]">
-            <h1 className="md:text-[29.4px] text-[16px] font-semibold">
+          <div className="flex flex-col md:justify-center md:items-center md:gap-10 gap-3 pb-6 md:pb-0 md:mt-0 mt-6 md:w-[420px] w-[145px]">
+            <h1 className="md:text-[29.4px] text-[16px] font-semibold mt-4">
               Wanted
             </h1>
-            <p className="flex md:text-center md:text-sm text-start text-[12px]">
+            <p className="flex md:text-center md:text-sm text-start my-4 text-[12px]">
               In just 3 clicks activate a team of experts to find the properties
               you need
             </p>

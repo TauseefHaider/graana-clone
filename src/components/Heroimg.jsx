@@ -27,7 +27,7 @@ export default function Heroimg() {
           className="w-full h-[320px] md:h-[541px] object-cover relative"
         />
 
-        <div className="flex flex-col absolute md:w-[700px] lg:w-[800px] w-[350px] justify-center items-center top-[80px] md:top-[132px] text-white gap-4">
+        <div className="flex flex-col absolute md:w-[700px] lg:w-[800px] w-[320px] justify-center items-center top-[80px] md:top-[132px] text-white gap-4">
           <p className="text-[34.44px] font-semibold text-center justify-center w-[675px] p-2 md:block hidden">
             Buy or rent vetted properties at the most trusted online real estate
             portal
