@@ -10,35 +10,25 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-export default function CardsDiv() {
-  // const product = props.product;
+import Card2 from "./Card";
+
+export default function CardsDiv({ title, data, buttons }) {
   return (
     <div className="w-full flex items-center justify-center my-4 text-[#37474F]">
-      <div className="w-[1200px] h-[457px] flex flex-col gap-6">
-        {/* <p>{product.heading}</p> */}
-        <p className="text-[21px] font-semibold">Top areas by city</p>
+      <div className="md:w-[650px] lg:w-[890px] 2xl:w-[1200px] w-[280px] h-[467px] flex flex-col gap-6">
+        <p className="md:text-[21px] text-[18px] font-semibold">{title}</p>
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Button
-              className="bg-white 
-             shadow-none text-[#37474F] border border-red-500 hover:bg-white hover:border-gray-700 h-[40px]"
-            >
-              Islamabad
-            </Button>
-            <Button className="bg-white shadow-none text-[#37474F] border border-gray-400 hover:bg-white hover:border-gray-700 h-[40px]">
-              Rawalpindi
-            </Button>
-            <Button className="bg-white shadow-none text-[#37474F] border border-gray-400 hover:bg-white hover:border-gray-700 h-[40px]">
-              Lahore
-            </Button>
-            <Button className="bg-white shadow-none text-[#37474F] border border-gray-400 hover:bg-white hover:border-gray-700 h-[40px]">
-              Karachi
-            </Button>
-            <Button className="bg-white shadow-none text-[#37474F] border border-gray-400 hover:bg-white hover:border-gray-700 h-[40px]">
-              Peshawar
-            </Button>
+          <div className="flex items-center gap-2 md:gap-3 overflow-scroll md:overflow-auto ">
+            {buttons.map((button, index) => (
+              <Button
+                key={index}
+                className="bg-white shadow-none text-[12px] md:text-[14px] px-3 md:px-4 text-[#37474F] border border-gray-400 hover:bg-white hover:border-gray-700 h-[40px]"
+              >
+                {button.btn}
+              </Button>
+            ))}
           </div>
-          <div className="flex gap-2">
+          <div className="lg:flex hidden gap-2">
             <p className="font-semibold text-[12px] text-black">
               Total properties in Islamabad:
             </p>
@@ -59,11 +49,18 @@ export default function CardsDiv() {
           </div>
         </div>
         <div>
-          <Carousel>
-            <CarouselContent>
-              <CarouselItem>1</CarouselItem>
-              <CarouselItem>2</CarouselItem>
-              <CarouselItem>3</CarouselItem>
+          <Carousel className="w-full max-w-full">
+            <CarouselContent className="-ml-1">
+              {data.map((item, index) => (
+                <CarouselItem
+                  key={index}
+                  className="pl-1 basis-1/1 md:basis-1/2 lg:basis-1/4"
+                >
+                  <div className="p-1">
+                    <Card2 item={item} />
+                  </div>
+                </CarouselItem>
+              ))}
             </CarouselContent>
             <CarouselPrevious />
             <CarouselNext />

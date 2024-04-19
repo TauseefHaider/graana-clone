@@ -10,8 +10,8 @@ export default function Transparentdiv() {
   return (
     <>
       <div className=" w-full my-5 md:flex justify-center min-h-[548px] flex-wrap items-center text-[#37474F] mt-4 hidden">
-        <div className="lg:w-[1080px] md:w-[660px] relative min-h-[548px] flex justify-center items-center lg:flex-nowrap md:flex-wrap">
-          <div className="lg:w-[1080px] md:w-[660px] md:p-2 min-h-[548px] backdrop-blur-lg bg-gray-200/50 z-10 rounded-xl flex items-center justify-center gap-12 lg:flex-nowrap md:flex-wrap">
+        <div className="xl:w-[1080px] lg:w-[930px] md:w-[660px] relative min-h-[548px] flex justify-center items-center lg:flex-nowrap md:flex-wrap">
+          <div className="xl:w-[1080px] lg:w-[930px] md:w-[660px] md:p-2 min-h-[548px] backdrop-blur-lg bg-gray-200/50 z-10 rounded-xl flex items-center justify-center gap-12 lg:flex-nowrap md:flex-wrap">
             <div className="w-[290px] h-[364px] bg-white rounded-lg items-center justify-center flex flex-col gap-6">
               <img src={buyimg} alt="" />
               <div className="flex justify-center items-center flex-col gap-8">

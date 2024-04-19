@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import granaLogo from "../assets/GraanaLogo.svg";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -18,25 +19,25 @@ export default function Header() {
             className={`group-hover:block hover:block hidden  absolute z-10 w-[300px] origin-top-right rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
           >
             <div className="w-[300px]">
-              <a
-                href="#"
+              <Link
+                to="buy/residential"
                 className="text-[#37474f] block px-4 py-3 text-sm hover:bg-gray-100"
               >
                 Buy a residential Property
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="buy/commercial"
                 className="text-[#37474f] block px-4 py-3 text-sm hover:bg-gray-100"
               >
                 Buy a commerial Property
-              </a>
+              </Link>
 
-              <a
-                href="#"
+              <Link
+                to="buy/plot"
                 className="text-[#37474f] block px-4 py-3 text-sm hover:bg-gray-100"
               >
                 Buy a plot
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -75,18 +76,18 @@ export default function Header() {
             className={`group-hover:block hover:block hidden  absolute z-10 w-[300px] origin-top-right rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
           >
             <div className="w-[300px]">
-              <a
-                href="#"
+              <Link
+                to="rent/residential"
                 className="text-[#37474f] block px-4 py-3 text-sm hover:bg-gray-100"
               >
                 Residential property on rent
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="rent/commercial"
                 className="text-[#37474f] block px-4 py-3 text-sm hover:bg-gray-100"
               >
                 Commerial property on rent
-              </a>
+              </Link>
               <a
                 href="#"
                 className="text-[#37474f] block px-4 py-3 text-sm hover:bg-gray-100"
