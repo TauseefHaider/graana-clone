@@ -51,18 +51,18 @@ export default function Header() {
             className={`group-hover:block hover:block hidden absolute z-10 w-[300px] origin-top-right rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
           >
             <div className="w-[300px]">
-              <a
-                href="#"
+              <Link
+                to="sell/property"
                 className="text-[#37474f] block px-4 py-3 text-sm hover:bg-gray-100"
               >
                 Sell a property
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="rent/property"
                 className="text-[#37474f] block px-4 py-3 text-sm hover:bg-gray-100"
               >
                 Rentout a property
-              </a>
+              </Link>
             </div>
           </div>
         </div>

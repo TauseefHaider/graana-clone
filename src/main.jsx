@@ -10,6 +10,8 @@ import BuyCommercial from "./pages/BuyCommercial.jsx";
 import BuyPlot from "./pages/BuyPlot.jsx";
 import RentCommercial from "./pages/RentCommercial.jsx";
 import RentResidential from "./pages/RentResidential.jsx";
+import SellProperty from "./pages/SellProperty.jsx";
+import RentProperty from "./pages/RentProperty.jsx";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +41,14 @@ const router = createBrowserRouter([
       {
         path: "rent/commercial",
         element: <RentCommercial />,
+      },
+      {
+        path: "sell/property",
+        element: <SellProperty />,
+      },
+      {
+        path: "rent/property",
+        element: <RentProperty />,
       },
     ],
   },
