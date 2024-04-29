@@ -94,6 +94,16 @@ export default function SellProperty() {
     });
     setCity("");
     setArea("");
+    setSize("");
+    setPrice("");
+    setBedRoom("");
+    setBathRoom("");
+    setPropertyName("");
+    setCondition("");
+    setImg("");
+    setContact("");
+    setType("");
+    setName("");
   };
 
   const btnbathroom = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10+"];
