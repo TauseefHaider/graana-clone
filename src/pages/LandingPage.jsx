@@ -10,230 +10,11 @@ import Blogsdiv from "../components/Blogsdiv";
 import blog1 from "../assets/blog1.webp";
 import blog2 from "../assets/blog2.webp";
 import Heroappdiv from "../components/Heroappdiv";
+import { useAds } from "../context";
 
 export default function LandingPage() {
-  const cityAreasData = [
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.5 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.2 arab",
-      type: "House",
-      bed: "5",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.8 arab",
-      type: "House",
-      bed: "8",
-      bath: "9",
-      city: "Lahore",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-  ];
-  const countryAreaData = [
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "Hotel",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.7 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.6 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.9 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-  ];
-  const countryArea = [
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-  ];
+  const { ads } = useAds();
+
   const blog = [
     {
       pic: blog1,
@@ -277,6 +58,9 @@ export default function LandingPage() {
       btn: "Peshawar",
     },
   ];
+
+  console.log(ads);
+
   return (
     <div>
       {/* Hero Img Section */}
@@ -288,21 +72,9 @@ export default function LandingPage() {
       {/* Hero Map Section */}
       <Heromap />
       {/* City cards */}
-      <CardsDiv
-        title="Top areas by city"
-        data={cityAreasData}
-        buttons={buttons}
-      />
-      <CardsDiv
-        title="Recent Properties for Rent"
-        data={countryAreaData}
-        buttons={buttons}
-      />
-      <CardsDiv
-        title="Recent Properties for Sale"
-        data={countryArea}
-        buttons={buttons}
-      />
+      <CardsDiv title="Top areas by city" buttons={buttons} />
+
+      <CardsDiv title="Recent Properties for Sale" buttons={buttons} />
       {/* blogs div */}
       <Blogsdiv data={blog} />
       <Heroappdiv />

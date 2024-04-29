@@ -2,14 +2,55 @@ import React from "react";
 import Header from "../components/Header";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
+import { AdsProvider, useAds } from "../context";
+import { useState, useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { firestore } from "../components/Firebase";
+import Mblheader from "./Mblheader";
 
 function Layout() {
+  const [ads, setAds] = useState([]);
+  const [selectedCard, setSelectedCard] = useState([]);
+
+  const handleSubmitAds = (ads) => {
+    setAds((prev) => [ads, ...prev]);
+  };
+  const handleSelectedCardData = (selectedCard) => {
+    setSelectedCard(selectedCard);
+  };
+
+  const getDataFromFirestore = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(firestore, "users"));
+      const adsData = [];
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        console.log("data1", data);
+
+        adsData.push({ id: doc.id, ...data });
+      });
+      setAds(adsData);
+      console.log("User data:", ads);
+      return ads;
+    } catch (error) {
+      console.error("Error fetching data from Firestore:", error);
+      return [];
+    }
+  };
+
+  useEffect(() => {
+    getDataFromFirestore();
+  }, []);
+
   return (
-    <>
+    <AdsProvider
+      value={{ ads, handleSubmitAds, selectedCard, handleSelectedCardData }}
+    >
       <Header />
+      <Mblheader />
       <Outlet />
       <Footer />
-    </>
+    </AdsProvider>
   );
 }
 

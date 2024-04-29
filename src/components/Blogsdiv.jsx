@@ -26,7 +26,7 @@ export default function Blogsdiv({ data }) {
             {data.map((item, index) => (
               <CarouselItem
                 key={index}
-                className=" basis-1/1 md:basis-1/2 lg:basis-1/3"
+                className=" basis-1/1 md:basis-1/2.2 lg:basis-1/2.8 2xl:basis-1/2.9"
               >
                 <div className="">
                   <Blogcards item={item} />

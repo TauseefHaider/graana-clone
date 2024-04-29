@@ -2,25 +2,10 @@ import React from "react";
 import mainimg from "../assets/Main_img.webp";
 import { Button } from "../components/ui/button";
 import search from "../assets/search.svg";
-import logoresponsive from "../assets/gr.svg";
-
-import Sidebar from "../components/Sidebar";
 
 export default function Heroimg() {
   return (
     <div className="relative">
-      <div className=" absolute z-10 flex top-4 w-full md:hidden">
-        <div className="ml-4">
-          <Sidebar />
-        </div>
-        <div className=" flex flex-1 items-center justify-center mr-14">
-          <img
-            className="w-[130px] cursor-pointer"
-            src={logoresponsive}
-            alt=""
-          />
-        </div>
-      </div>
       <div className="flex justify-center relative">
         <img
           src={mainimg}

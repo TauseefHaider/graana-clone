@@ -1,13 +1,5 @@
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 import React from "react";
-import sidelogo from "../assets/sidebarlogo.svg";
+import sidelogo from "../assets/sidelogoblack.svg";
 import granalogo from "../assets/GraanaLogo.svg";
 import { Button } from "./ui/button";
 import {
@@ -16,13 +8,22 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 import buyicon from "../assets/buyicon.svg";
 import renticon from "../assets/renticon.svg";
 import sellicon from "../assets/sellicon.svg";
 import moreicon from "../assets/moreicon.webp";
+import { Link } from "react-router-dom";
 
-export default function Sidebar() {
+export default function SidelogoWhite() {
   return (
     <div>
       <Sheet>
@@ -52,18 +53,18 @@ export default function Sidebar() {
                     </AccordionTrigger>
                     <AccordionContent>
                       <div className="w-[220px]">
-                        <a
-                          href="#"
+                        <Link
+                          to="buy/residential"
                           className="text-[#37474f] block pl-4 py-1 text-[10px] hover:bg-gray-100"
                         >
                           Buy a residential Property
-                        </a>
-                        <a
-                          href="#"
+                        </Link>
+                        <Link
+                          to="#"
                           className="text-[#37474f] block pl-4 py-1 text-[10px] hover:bg-gray-100"
                         >
                           Buy a commerial Property
-                        </a>
+                        </Link>
 
                         <a
                           href="#"
@@ -120,12 +121,12 @@ export default function Sidebar() {
                     </AccordionTrigger>
                     <AccordionContent>
                       <div className="w-[220px]">
-                        <a
-                          href="#"
+                        <Link
+                          to="sell/property"
                           className="text-[#37474f] block pl-4 py-1 text-[10px] hover:bg-gray-100"
                         >
                           Sell a Property
-                        </a>
+                        </Link>
                         <a
                           href="#"
                           className="text-[#37474f] block pl-4 py-1 text-[10px] hover:bg-gray-100"

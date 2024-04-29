@@ -1,4 +1,5 @@
 import React from "react";
+
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
@@ -12,6 +13,7 @@ import RentCommercial from "./pages/RentCommercial.jsx";
 import RentResidential from "./pages/RentResidential.jsx";
 import SellProperty from "./pages/SellProperty.jsx";
 import RentProperty from "./pages/RentProperty.jsx";
+import CardsDetails from "./pages/CardsDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -50,12 +52,14 @@ const router = createBrowserRouter([
         path: "rent/property",
         element: <RentProperty />,
       },
+      {
+        path: "details",
+        element: <CardsDetails />,
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  <RouterProvider router={router} />
 );

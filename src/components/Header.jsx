@@ -23,7 +23,7 @@ export default function Header() {
   const [imgvalue, setImgvalue] = useState(false);
 
   const handleSignup = () => {
-    signInWithPopup(auth, provider).then((data) => {
+    signInWithPopup(auth, provider).then(() => {
       setSignIn(false);
       setImgvalue(true);
     });
@@ -47,6 +47,8 @@ export default function Header() {
         setSignIn(false);
         setImg(user);
         setImgvalue(true);
+        console.log("Currentuser =", img.photoURL);
+        console.log(imgvalue);
       } else {
         setSignIn(true);
         setImgvalue(false);
@@ -54,12 +56,14 @@ export default function Header() {
       }
     });
   });
-  console.log("Currentuser =", img);
 
   return (
     <div className="h-[76px] z-50 sticky top-0 bg-white px-[10px] text-[#37474f] md:flex items-center hidden shadow-md">
       <div className="lg:pl-[108px] md:pl-[10px] md:pr-[5px]  pr-[30px] cursor-pointer">
-        <img className="w-[240px] h-[40px]" src={granaLogo} alt="" />
+        <Link to="">
+          {" "}
+          <img className="w-[240px] h-[40px]" src={granaLogo} alt="" />
+        </Link>
       </div>
       <div className="flex items-center justify-start flex-1">
         <div className="group relative inline-block text-left">
@@ -78,14 +82,14 @@ export default function Header() {
                 Buy a residential Property
               </Link>
               <Link
-                to="buy/commercial"
+                to="#"
                 className="text-[#37474f] block px-4 py-3 text-sm hover:bg-gray-100"
               >
                 Buy a commerial Property
               </Link>
 
               <Link
-                to="buy/plot"
+                to="#"
                 className="text-[#37474f] block px-4 py-3 text-sm hover:bg-gray-100"
               >
                 Buy a plot
@@ -110,7 +114,7 @@ export default function Header() {
                 Sell a property
               </Link>
               <Link
-                to="rent/property"
+                to="#"
                 className="text-[#37474f] block px-4 py-3 text-sm hover:bg-gray-100"
               >
                 Rentout a property
@@ -129,13 +133,13 @@ export default function Header() {
           >
             <div className="w-[300px]">
               <Link
-                to="rent/residential"
+                to="#"
                 className="text-[#37474f] block px-4 py-3 text-sm hover:bg-gray-100"
               >
                 Residential property on rent
               </Link>
               <Link
-                to="rent/commercial"
+                to="#"
                 className="text-[#37474f] block px-4 py-3 text-sm hover:bg-gray-100"
               >
                 Commerial property on rent
@@ -219,6 +223,7 @@ export default function Header() {
               src={img.photoURL}
               alt=""
             />
+
             <div
               className={`group-hover:block hover:block hidden right-0 absolute z-10 w-[200px] origin-top-right rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
             >
