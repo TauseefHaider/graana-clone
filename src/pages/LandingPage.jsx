@@ -72,7 +72,6 @@ export default function LandingPage() {
       {/* Hero Map Section */}
       <Heromap />
       {/* City cards */}
-      <CardsDiv title="Top areas by city" buttons={buttons} />
 
       <CardsDiv title="Recent Properties for Sale" buttons={buttons} />
       {/* blogs div */}

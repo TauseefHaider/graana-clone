@@ -9,7 +9,7 @@ export default function Card2({ item }) {
   const { ads } = useAds();
   console.log("item", ads);
   return (
-    <Card className=" rounded ">
+    <Card className=" rounded cursor-pointer">
       <CardContent className="flex w-[289px] flex-col aspect-square p-0 text-[#37474F]">
         <img
           className=" object-cover w-[289px]  h-[161px] "
