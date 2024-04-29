@@ -5,6 +5,7 @@ import buyimg from "../assets/buyimg.svg";
 import sellimg from "../assets/sellimg.svg";
 import rentimg from "../assets/rentimg.svg";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 export default function Transparentdiv() {
   return (
@@ -22,9 +23,11 @@ export default function Transparentdiv() {
                   <p className="text-[14px]">Find where “perfect”</p>
                   <p className="text-[14px]">meets “happy”</p>
                 </div>
-                <Button className="text-[12px] bg-white text-[#37474F] shadow-none border border-black hover:bg-gray-100">
-                  BROWSE PROPERTIES
-                </Button>
+                <Link to="buy/residential">
+                  <Button className="text-[12px] bg-white text-[#37474F] shadow-none border border-black hover:bg-gray-100">
+                    BROWSE PROPERTIES
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="w-[290px] h-[364px] bg-white rounded-lg items-center justify-center flex flex-col gap-6">
@@ -37,9 +40,11 @@ export default function Transparentdiv() {
                   <p className="text-[14px]">Get the best value</p>
                   <p className="text-[14px]">in any economy</p>
                 </div>
-                <Button className="text-[12px] bg-white text-[#37474F] shadow-none border border-black hover:bg-gray-100">
-                  ADD DETAILS
-                </Button>
+                <Link to="sell/property">
+                  <Button className="text-[12px] bg-white text-[#37474F] shadow-none border border-black hover:bg-gray-100">
+                    ADD DETAILS
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="w-[290px] h-[364px] bg-white rounded-lg items-center justify-center flex flex-col gap-6">
