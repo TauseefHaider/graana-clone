@@ -206,7 +206,7 @@ export default function Header() {
                     >
                       <div className="flex items-center gap-14">
                         <img src={google} alt="" />
-                        <p> Contineu with Google </p>
+                        <p> Continue with Google </p>
                       </div>
                     </Button>
                   </AlertDialogDescription>
