@@ -56,13 +56,30 @@ export default function SellProperty() {
   const add = async (e) => {
     e.preventDefault();
 
+    if (
+      !type ||
+      !city ||
+      !area ||
+      !size ||
+      !bedRoom ||
+      !bathRoom ||
+      !price ||
+      !propertyName ||
+      !condition ||
+      !contact ||
+      !name ||
+      !img
+    ) {
+      alert("All fields are required");
+      return;
+    }
+
     let url;
 
     if (img) {
       const imgRef = ref(storage, `${img.name}`);
       await uploadBytes(imgRef, img);
       url = await getDownloadURL(imgRef);
-      console.log();
     }
 
     handleSubmitAds({
@@ -166,7 +183,6 @@ export default function SellProperty() {
     });
   };
 
-  console.log(ads);
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {

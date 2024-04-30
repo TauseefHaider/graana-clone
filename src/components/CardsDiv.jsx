@@ -25,7 +25,6 @@ export default function CardsDiv({ title, data, buttons }) {
     let cardData = [];
     if (item) {
       cardData.push({ item });
-      console.log(cardData);
     }
     setSelectedCard(cardData);
   };
@@ -38,7 +37,7 @@ export default function CardsDiv({ title, data, buttons }) {
     if (selectedCard.length > 0) {
       const selectedItem = selectedCard[0].item;
       handleSelectedCardData(selectedItem);
-      console.log("for2", selectedCard);
+
       navigate("/details");
     }
   }, [selectedCard]);

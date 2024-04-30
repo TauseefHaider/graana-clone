@@ -6,28 +6,27 @@ import area from "../assets/area.svg";
 
 export default function CardsDetails() {
   const { selectedCard } = useAds();
-  console.log("for", selectedCard);
 
   return (
     <div className="flex items-center justify-center text-[#37474F]">
-      <div className="w-[1100px] flex flex-col gap-8 mt-[50px]">
+      <div className="xl:w-[1100px] lg:w-[900px] md:w-[700px] flex flex-col gap-8 mt-[50px]">
         <img
-          className="w-[1100px] object-cover rounded-2xl h-[400px]"
+          className="xl:w-[1100px] lg:w-[890px] object-cover md:rounded-2xl lg:h-[400px] h-[300px]"
           src={selectedCard.imgUrl}
           alt=""
         />
         <div className="px-4 flex flex-col gap-4">
           <div className="flex justify-between items-center ">
-            <p className="text-[28px] font-semibold">
+            <p className="lg:text-[28px] md:text-[20px] font-semibold">
               {selectedCard.propertyName} In {selectedCard.area},{" "}
               {selectedCard.city}
             </p>
-            <p className="flex gap-1 text-[14px] items-center justify-center font-semibold">
+            <p className="md:flex hidden gap-1 text-[14px] items-center justify-center font-semibold">
               <span>Contact:</span>
               {selectedCard.contact}
             </p>
           </div>
-          <div className="flex gap-4 items-center text-[14px]">
+          <div className="flex gap-4 items-center md:text-[14px] text-[12px]">
             <div className="flex gap-2 items-center ">
               <img src={bed} alt="" /> <p>{selectedCard.bedRoom}</p>
             </div>
@@ -40,19 +39,23 @@ export default function CardsDetails() {
             <p>{selectedCard.type}</p>
           </div>
           <div className="flex items-center gap-3 font-semibold">
-            <p>PKR</p>
-            <p className="text-[26px]">{selectedCard.price}</p>
+            <p className="text-[14px]">PKR</p>
+            <p className="lg:text-[26px] md:text-[20px]">
+              {selectedCard.price}
+            </p>
           </div>
           <div className="flex justify-between items-center">
             {" "}
-            <p className="text-[12px]">Added 7 hours ago</p>
-            <p className="font-semibold text-[20px]">
+            <p className="md:text-[12px] text-[10px]">Added 7 hours ago</p>
+            <p className="font-semibold lg:text-[20px]  hidden md:block">
               Published by : {selectedCard.name}
             </p>
           </div>
           <div className="flex flex-col font-semibold gap-1 py-8  border-y border-y-gray-300">
-            <p className="text-[18px]">Condition</p>
-            <p className="text-[14px]">{selectedCard.condition}</p>
+            <p className="md:text-[18px] text[16px]">Condition</p>
+            <p className="md:text-[14px] text-[12px]">
+              {selectedCard.condition}
+            </p>
           </div>
         </div>
       </div>
