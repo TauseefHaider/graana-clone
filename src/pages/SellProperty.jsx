@@ -32,6 +32,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { useNavigate } from "react-router-dom";
 
 export default function SellProperty() {
   const [city, setCity] = useState("");
@@ -50,6 +51,7 @@ export default function SellProperty() {
   const [submit, setSubmit] = useState(false);
 
   const { handleSubmitAds, ads } = useAds();
+  const navigate = useNavigate();
 
   const add = async (e) => {
     e.preventDefault();
@@ -92,18 +94,7 @@ export default function SellProperty() {
       contact,
       name,
     });
-    setCity("");
-    setArea("");
-    setSize("");
-    setPrice("");
-    setBedRoom("");
-    setBathRoom("");
-    setPropertyName("");
-    setCondition("");
-    setImg("");
-    setContact("");
-    setType("");
-    setName("");
+    navigate("/");
   };
 
   const btnbathroom = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10+"];
@@ -291,7 +282,7 @@ export default function SellProperty() {
             <div className="flex flex-col gap-3 ">
               <p className="font-semibold">What is the asking price?</p>
               <Input
-                type="number"
+                type="text"
                 placeholder="0 PKR"
                 className="w-[300px] md:w-[400px]"
                 value={price}
@@ -380,16 +371,20 @@ export default function SellProperty() {
             </div>
             <div className="w-full flex justify-center items-center p-6 ">
               {submit && (
-                <Button onClick={add} className="w-[170px]">
-                  Submit
+                <Button
+                  onClick={add}
+                  className="w-[170px] bg-[#37474f] hover:bg-[#37474f] font-semibold"
+                >
+                  SUBMIT
                 </Button>
               )}
               {singIn && (
                 <AlertDialog className="px-3">
-                  <AlertDialogTrigger>
-                    <Button value={singIn} className="w-[170px]">
-                      Submit
-                    </Button>
+                  <AlertDialogTrigger
+                    value={singIn}
+                    className="w-[170px] text-white bg-[#37474f] py-2 rounded-lg font-semibold "
+                  >
+                    SUBMIT
                   </AlertDialogTrigger>
                   <AlertDialogContent>
                     <AlertDialogHeader className="">

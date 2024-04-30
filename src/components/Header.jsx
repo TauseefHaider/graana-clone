@@ -47,8 +47,6 @@ export default function Header() {
         setSignIn(false);
         setImg(user);
         setImgvalue(true);
-        console.log("Currentuser =", img.photoURL);
-        console.log(imgvalue);
       } else {
         setSignIn(true);
         setImgvalue(false);
@@ -168,13 +166,11 @@ export default function Header() {
 
         {singIn && (
           <AlertDialog className="px-3">
-            <AlertDialogTrigger>
-              <Button
-                value={singIn}
-                className="bg-inherit text-[#37474f] border px-[18px] h-10 border-black font-semibold shadow-none hover:bg-inherit"
-              >
-                Sign In
-              </Button>
+            <AlertDialogTrigger
+              value={singIn}
+              className="bg-inherit rounded-lg text-[14px] text-[#37474f] border px-[18px] h-10 border-black font-semibold shadow-none hover:bg-inherit"
+            >
+              Sign In
             </AlertDialogTrigger>
             <AlertDialogContent>
               <AlertDialogHeader className="">

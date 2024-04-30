@@ -3,8 +3,10 @@ import { createContext, useContext } from "react";
 export const AdsContext = createContext({
   ads: [],
   selectedCard: [],
+  selectedBtn: "",
   handleSubmitAds: (ads) => {},
   handleSelectedCardData: () => {},
+  handleSelectedBtn: () => {},
 });
 
 export const useAds = () => {

@@ -1,267 +1,44 @@
 import React from "react";
 import homepic from "../assets/home.webp";
 import CardsDiv from "../components/CardsDiv";
+import { useAds } from "../context";
 
 export default function BuyResidential() {
-  const cityAreasData = [
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.5 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.2 arab",
-      type: "House",
-      bed: "5",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.8 arab",
-      type: "House",
-      bed: "8",
-      bath: "9",
-      city: "Lahore",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-  ];
-  const countryAreaData = [
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "Hotel",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.7 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.6 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.9 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-  ];
-  const countryArea = [
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: homepic,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-  ];
-  const buttons = [
-    {
-      btn: "Residential Properties",
-    },
-    {
-      btn: "Commercial Properties",
-    },
-    {
-      btn: "Plots",
-    },
-  ];
+  const buttons = ["Residential Properties", "Commercial Properties", "Plots"];
+
+  const { ads } = useAds();
+
+  const islamabadData = ads.filter((data) => data.city === "Islamabad");
+  const RawalpindiData = ads.filter((data) => data.city === "Rawalpindi");
+  const LahoreData = ads.filter((data) => data.city === "Lahore");
+  const KarachiData = ads.filter((data) => data.city === "Karachi");
+  const PeshawarData = ads.filter((data) => data.city === "Peshawar");
 
   return (
     <div>
       <CardsDiv
         title="Properties for Sale in Islamabad"
-        data={cityAreasData}
+        data={islamabadData}
         buttons={buttons}
       />
       <CardsDiv
         title="Properties for Sale in Rawalpindi"
-        data={countryAreaData}
+        data={RawalpindiData}
         buttons={buttons}
       />
       <CardsDiv
         title="Properties for Sale in Lahore"
-        data={countryArea}
+        data={LahoreData}
         buttons={buttons}
       />
       <CardsDiv
         title="Properties for Sale in Karachi"
-        data={countryArea}
+        data={KarachiData}
         buttons={buttons}
       />
       <CardsDiv
         title="Properties for Sale in Peshawar"
-        data={countryArea}
+        data={PeshawarData}
         buttons={buttons}
       />
     </div>

@@ -11,6 +11,11 @@ import Mblheader from "./Mblheader";
 function Layout() {
   const [ads, setAds] = useState([]);
   const [selectedCard, setSelectedCard] = useState([]);
+  const [selectedBtn, setSelectedBtn] = useState("");
+
+  const handleSelectedBtn = (item) => {
+    setSelectedBtn(item);
+  };
 
   const handleSubmitAds = (ads) => {
     setAds((prev) => [ads, ...prev]);
@@ -25,12 +30,11 @@ function Layout() {
       const adsData = [];
       querySnapshot.forEach((doc) => {
         const data = doc.data();
-        console.log("data1", data);
 
         adsData.push({ id: doc.id, ...data });
       });
       setAds(adsData);
-      console.log("User data:", ads);
+
       return ads;
     } catch (error) {
       console.error("Error fetching data from Firestore:", error);
@@ -44,7 +48,14 @@ function Layout() {
 
   return (
     <AdsProvider
-      value={{ ads, handleSubmitAds, selectedCard, handleSelectedCardData }}
+      value={{
+        ads,
+        handleSubmitAds,
+        selectedCard,
+        handleSelectedCardData,
+        selectedBtn,
+        handleSelectedBtn,
+      }}
     >
       <Header />
       <Mblheader />

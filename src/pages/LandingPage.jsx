@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Heroinvest from "../components/Heroinvest";
 import Heroimg from "../components/Heroimg";
@@ -11,9 +11,11 @@ import blog1 from "../assets/blog1.webp";
 import blog2 from "../assets/blog2.webp";
 import Heroappdiv from "../components/Heroappdiv";
 import { useAds } from "../context";
+import { useEffect } from "react";
 
 export default function LandingPage() {
-  const { ads } = useAds();
+  const { ads, selectedBtn } = useAds();
+  const [alldata, setAlldata] = useState([]);
 
   const blog = [
     {
@@ -41,25 +43,16 @@ export default function LandingPage() {
       date: "March 1, 2024 - 7 min read",
     },
   ];
-  const buttons = [
-    {
-      btn: "Islamabad",
-    },
-    {
-      btn: "Rawalpind",
-    },
-    {
-      btn: "Lahore",
-    },
-    {
-      btn: "Karachi",
-    },
-    {
-      btn: "Peshawar",
-    },
-  ];
+  const buttons = ["Islamabad", "Rawalpind", "Lahore", "Karachi", "Peshawar"];
 
-  console.log(ads);
+  useEffect(() => {
+    if (selectedBtn) {
+      const filteredData = ads.filter((data) => data.city === selectedBtn);
+      setAlldata(filteredData);
+    } else {
+      setAlldata(ads);
+    }
+  }, [selectedBtn, ads]);
 
   return (
     <div>
@@ -73,7 +66,11 @@ export default function LandingPage() {
       <Heromap />
       {/* City cards */}
 
-      <CardsDiv title="Recent Properties for Sale" buttons={buttons} />
+      <CardsDiv
+        data={alldata}
+        title="Recent Properties for Sale"
+        buttons={buttons}
+      />
       {/* blogs div */}
       <Blogsdiv data={blog} />
       <Heroappdiv />

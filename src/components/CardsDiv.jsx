@@ -16,9 +16,9 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function CardsDiv({ title, data, buttons }) {
-  const { ads, handleSelectedCardData } = useAds();
+  const { ads, handleSelectedCardData, handleSelectedBtn } = useAds();
   const navigate = useNavigate();
-
+  const [selectedBtn, setSelectedBtn] = useState("");
   const [selectedCard, setSelectedCard] = useState([]);
 
   const handleCardClick = (item) => {
@@ -29,6 +29,11 @@ export default function CardsDiv({ title, data, buttons }) {
     }
     setSelectedCard(cardData);
   };
+
+  useEffect(() => {
+    handleSelectedBtn(selectedBtn);
+  }, [selectedBtn]);
+
   useEffect(() => {
     if (selectedCard.length > 0) {
       const selectedItem = selectedCard[0].item;
@@ -44,12 +49,19 @@ export default function CardsDiv({ title, data, buttons }) {
         <p className="md:text-[21px] text-[18px] font-semibold">{title}</p>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 md:gap-3 overflow-scroll md:overflow-auto ">
-            {buttons.map((button, index) => (
+            {buttons.map((item, index) => (
               <Button
                 key={index}
-                className="bg-white shadow-none text-[12px] md:text-[14px] px-3 md:px-4 text-[#37474F] border border-gray-400 hover:bg-white hover:border-gray-700 h-[40px]"
+                style={{
+                  borderColor: selectedBtn === item ? "#EF4444" : "#D1D5DB",
+                }}
+                className={`  bg-white shadow-none text-[12px] md:text-[14px] px-3 md:px-4 text-[#37474F] border border-gray-400 hover:bg-white hover:border-gray-700 h-[40px]`}
+                onClick={() => {
+                  setSelectedBtn(item);
+                  handleSelectedBtn(item);
+                }}
               >
-                {button.btn}
+                {item}
               </Button>
             ))}
           </div>
@@ -76,7 +88,7 @@ export default function CardsDiv({ title, data, buttons }) {
         <div>
           <Carousel className="w-full max-w-full">
             <CarouselContent className="-ml-1">
-              {ads.map((item, index) => (
+              {data.map((item, index) => (
                 <CarouselItem
                   key={index}
                   className="pl-1 basis-1/1 md:basis-1/2.2  lg:basis-1/2.9 2xl:basis-1/3.9"
