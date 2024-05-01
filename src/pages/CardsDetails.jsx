@@ -18,7 +18,7 @@ export default function CardsDetails() {
         <div className="px-4 flex flex-col gap-4">
           <div className="flex justify-between items-center ">
             <p className="lg:text-[28px] md:text-[20px] font-semibold">
-              {selectedCard.propertyName} In {selectedCard.area},{" "}
+              {selectedCard.propertyName} In {selectedCard.area},
               {selectedCard.city}
             </p>
             <p className="md:flex hidden gap-1 text-[14px] items-center justify-center font-semibold">
