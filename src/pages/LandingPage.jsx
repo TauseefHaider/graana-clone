@@ -15,7 +15,6 @@ import { useEffect } from "react";
 
 export default function LandingPage() {
   const { ads, selectedBtn } = useAds();
-  const [alldata, setAlldata] = useState([]);
 
   const blog = [
     {
@@ -43,16 +42,13 @@ export default function LandingPage() {
       date: "March 1, 2024 - 7 min read",
     },
   ];
+  const SellProperty = ads.filter((data) => data.propertyFor === "Sell");
   const buttons = ["Islamabad", "Rawalpind", "Lahore", "Karachi", "Peshawar"];
-
-  useEffect(() => {
-    if (selectedBtn) {
-      const filteredData = ads.filter((data) => data.city === selectedBtn);
-      setAlldata(filteredData);
-    } else {
-      setAlldata(ads);
-    }
-  }, [selectedBtn, ads]);
+  const filteredData = SellProperty.filter((data) => data.city === selectedBtn);
+  const RentProperty = ads.filter((data) => data.propertyFor === "Rent");
+  const filteredDataRent = RentProperty.filter(
+    (data) => data.city === selectedBtn
+  );
 
   return (
     <div>
@@ -67,9 +63,17 @@ export default function LandingPage() {
       {/* City cards */}
 
       <CardsDiv
-        data={alldata}
+        data={filteredDataRent}
+        title="Recent Properties for Rent"
+        buttons={buttons}
+        defaultSelectedIndex={0}
+      />
+
+      <CardsDiv
+        data={filteredData}
         title="Recent Properties for Sale"
         buttons={buttons}
+        defaultSelectedIndex={0}
       />
       {/* blogs div */}
       <Blogsdiv data={blog} />

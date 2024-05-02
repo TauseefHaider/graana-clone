@@ -1,268 +1,68 @@
 import React from "react";
-import plot from "../assets/plot.webp";
+
 import CardsDiv from "../components/CardsDiv";
+import { useAds } from "../context";
 
 export default function BuyPlot() {
-  const cityAreasData = [
-    {
-      img: plot,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: plot,
-      price: "1.5 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: plot,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: plot,
-      price: "1.2 arab",
-      type: "House",
-      bed: "5",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: plot,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: plot,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: plot,
-      price: "1.8 arab",
-      type: "House",
-      bed: "8",
-      bath: "9",
-      city: "Lahore",
-      Location: "F-6",
-    },
-    {
-      img: plot,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-  ];
-  const countryAreaData = [
-    {
-      img: plot,
-      price: "1.3 arab",
-      type: "Hotel",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: plot,
-      price: "1.7 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: plot,
-      price: "1.6 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: plot,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: plot,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: plot,
-      price: "1.9 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: plot,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: plot,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-  ];
-  const countryArea = [
-    {
-      img: plot,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: plot,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: plot,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: plot,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: plot,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: plot,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: plot,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-    {
-      img: plot,
-      price: "1.3 arab",
-      type: "House",
-      bed: "6",
-      bath: "7",
-      city: "Islamabad",
-      Location: "F-6",
-    },
-  ];
-  const buttons = [
-    {
-      btn: "Residential Properties",
-    },
-    {
-      btn: "Commercial Properties",
-    },
-    {
-      btn: "Plots",
-    },
-  ];
+  const buttons = ["Residential", "Commercial", "Plots"];
+  const { ads, selectedBtn } = useAds();
+  const SellProperty = ads.filter((data) => data.propertyFor === "Sell");
 
+  const islamabadData = SellProperty.filter(
+    (data) => data.city === "Islamabad"
+  );
+  const RawalpindiData = SellProperty.filter(
+    (data) => data.city === "Rawalpindi"
+  );
+  const LahoreData = SellProperty.filter((data) => data.city === "Lahore");
+  const KarachiData = SellProperty.filter((data) => data.city === "Karachi");
+  const PeshawarData = SellProperty.filter((data) => data.city === "Peshawar");
+  const filteredIslamabad = islamabadData.filter(
+    (data) => data.propertyType === selectedBtn
+  );
+  const filteredRawalpindi = RawalpindiData.filter(
+    (data) => data.propertyType === selectedBtn
+  );
+  const filteredLahore = LahoreData.filter(
+    (data) => data.propertyType === selectedBtn
+  );
+  const filteredKarachi = KarachiData.filter(
+    (data) => data.propertyType === selectedBtn
+  );
+  const filteredPeshawar = PeshawarData.filter(
+    (data) => data.propertyType === selectedBtn
+  );
   return (
     <div>
       <CardsDiv
         title="Properties for Sale in Islamabad"
-        data={cityAreasData}
+        data={filteredIslamabad}
         buttons={buttons}
+        defaultSelectedIndex={2}
       />
       <CardsDiv
         title="Properties for Sale in Rawalpindi"
-        data={countryAreaData}
+        data={filteredRawalpindi}
         buttons={buttons}
+        defaultSelectedIndex={2}
       />
       <CardsDiv
         title="Properties for Sale in Lahore"
-        data={countryArea}
+        data={filteredLahore}
         buttons={buttons}
+        defaultSelectedIndex={2}
       />
       <CardsDiv
         title="Properties for Sale in Karachi"
-        data={countryArea}
+        data={filteredKarachi}
         buttons={buttons}
+        defaultSelectedIndex={2}
       />
       <CardsDiv
         title="Properties for Sale in Peshawar"
-        data={countryArea}
+        data={filteredPeshawar}
         buttons={buttons}
+        defaultSelectedIndex={2}
       />
     </div>
   );

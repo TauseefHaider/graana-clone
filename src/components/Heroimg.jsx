@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import mainimg from "../assets/Main_img.webp";
 import { Button } from "../components/ui/button";
 import search from "../assets/search.svg";
 
 export default function Heroimg() {
+  const [type, setType] = useState("Sell");
+
+  const btn = [
+    {
+      type: "Sell",
+      text: "Buy",
+    },
+    {
+      type: "Rent",
+      text: "RENT",
+    },
+  ];
+
   return (
     <div className="relative">
       <div className="flex justify-center relative">
@@ -22,12 +35,19 @@ export default function Heroimg() {
           </p>
 
           <div className="flex gap-4">
-            <Button className="font-semibold w-[75px] md:w-[100px] text-[13px] h-[37px] md:h-[43px] hover:bg-white text-[#37474f] bg-white ">
-              BUY
-            </Button>
-            <Button className="font-semibold w-[75px] text-[13px] md:w-[100px] h-[37px] md:h-[43px] hover:bg-white text-[#37474f] backdrop-blur bg-white/60">
-              RENT
-            </Button>
+            {btn.map((item, index) => (
+              <Button
+                key={index}
+                style={{
+                  backgroundColor:
+                    type === item.type ? "white" : "rgba(255, 255, 255, 0.6)",
+                }}
+                className="font-semibold w-[75px] text-[13px] md:w-[100px] h-[37px] md:h-[43px] hover:bg-white text-[#37474f] backdrop-blur "
+                onClick={() => setType(item.type)}
+              >
+                {item.text}
+              </Button>
+            ))}
           </div>
           <div className="flex w-full bg-white rounded-xl md:rounded-2xl h-[60px] md:h-[80px] pl-[15px] ">
             <input

@@ -80,14 +80,14 @@ export default function Header() {
                 Buy a residential Property
               </Link>
               <Link
-                to="#"
+                to="buy/commercial"
                 className="text-[#37474f] block px-4 py-3 text-sm hover:bg-gray-100"
               >
                 Buy a commerial Property
               </Link>
 
               <Link
-                to="#"
+                to="buy/plot"
                 className="text-[#37474f] block px-4 py-3 text-sm hover:bg-gray-100"
               >
                 Buy a plot
@@ -112,7 +112,7 @@ export default function Header() {
                 Sell a property
               </Link>
               <Link
-                to="#"
+                to="rent/property"
                 className="text-[#37474f] block px-4 py-3 text-sm hover:bg-gray-100"
               >
                 Rentout a property
@@ -131,23 +131,23 @@ export default function Header() {
           >
             <div className="w-[300px]">
               <Link
-                to="#"
+                to="rent/residential"
                 className="text-[#37474f] block px-4 py-3 text-sm hover:bg-gray-100"
               >
                 Residential property on rent
               </Link>
               <Link
-                to="#"
+                to="rent/commercial"
                 className="text-[#37474f] block px-4 py-3 text-sm hover:bg-gray-100"
               >
                 Commerial property on rent
               </Link>
-              <a
-                href="#"
+              <Link
+                to="list/home"
                 className="text-[#37474f] block px-4 py-3 text-sm hover:bg-gray-100"
               >
                 List my home for rent
-              </a>
+              </Link>
             </div>
           </div>
         </div>

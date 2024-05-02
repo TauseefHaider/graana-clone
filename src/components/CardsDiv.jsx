@@ -14,11 +14,17 @@ import Card2 from "./Card";
 import { useAds } from "../context";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import SkeletoLoading from "./SkeletoLoading";
 
-export default function CardsDiv({ title, data, buttons }) {
+export default function CardsDiv({
+  title,
+  data,
+  buttons,
+  defaultSelectedIndex,
+}) {
   const { ads, handleSelectedCardData, handleSelectedBtn } = useAds();
   const navigate = useNavigate();
-  const [selectedBtn, setSelectedBtn] = useState("");
+  const [selectedBtn, setSelectedBtn] = useState(buttons[defaultSelectedIndex]);
   const [selectedCard, setSelectedCard] = useState([]);
 
   const handleCardClick = (item) => {

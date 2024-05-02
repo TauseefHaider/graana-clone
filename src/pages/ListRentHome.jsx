@@ -51,7 +51,7 @@ import foodCourt from "../assets/foodCourt.svg";
 import factory from "../assets/factory.svg";
 import apart from "../assets/apart.svg";
 
-export default function SellProperty() {
+export default function ListRentHome() {
   const [city, setCity] = useState("");
   const [area, setArea] = useState("");
   const [size, setSize] = useState("");
@@ -66,7 +66,7 @@ export default function SellProperty() {
   const [name, setName] = useState("");
   const [singIn, setSignIn] = useState(true);
   const [submit, setSubmit] = useState(false);
-  const [propertyFor, setPropertyFor] = useState("Sell");
+  const [propertyFor, setPropertyFor] = useState("Rent");
   const [propertyType, setPropertyType] = useState("Residential");
 
   const { handleSubmitAds, ads } = useAds();
