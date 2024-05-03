@@ -12,6 +12,15 @@ function Layout() {
   const [ads, setAds] = useState([]);
   const [selectedCard, setSelectedCard] = useState([]);
   const [selectedBtn, setSelectedBtn] = useState("");
+  const [type, setType] = useState("Sell");
+  const [search, setSearch] = useState("");
+
+  const handleType = (item) => {
+    setType(item);
+  };
+  const handleSearch = (item) => {
+    setSearch(item);
+  };
 
   const handleSelectedBtn = (item) => {
     setSelectedBtn(item);
@@ -55,6 +64,10 @@ function Layout() {
         handleSelectedCardData,
         selectedBtn,
         handleSelectedBtn,
+        type,
+        handleType,
+        search,
+        handleSearch,
       }}
     >
       <Header />

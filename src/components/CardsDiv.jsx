@@ -14,7 +14,7 @@ import Card2 from "./Card";
 import { useAds } from "../context";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import SkeletoLoading from "./SkeletoLoading";
+import Loader from "./Loader";
 
 export default function CardsDiv({
   title,
@@ -26,6 +26,7 @@ export default function CardsDiv({
   const navigate = useNavigate();
   const [selectedBtn, setSelectedBtn] = useState(buttons[defaultSelectedIndex]);
   const [selectedCard, setSelectedCard] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const handleCardClick = (item) => {
     let cardData = [];
@@ -47,6 +48,14 @@ export default function CardsDiv({
       navigate("/details");
     }
   }, [selectedCard]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="w-full flex items-center justify-center my-4 text-[#37474F]">
@@ -72,7 +81,7 @@ export default function CardsDiv({
           </div>
           <div className="lg:flex hidden gap-2">
             <p className="font-semibold text-[12px] text-black">
-              Total properties in Islamabad:
+              Total properties:
             </p>
             <img src={renthome} alt="" />
             <p className="text-[12px]">
@@ -92,18 +101,28 @@ export default function CardsDiv({
         </div>
         <div>
           <Carousel className="w-full max-w-full">
-            <CarouselContent className="-ml-1">
-              {data.map((item, index) => (
-                <CarouselItem
-                  key={index}
-                  className="pl-1 basis-1/1 md:basis-1/2.2  lg:basis-1/2.9 2xl:basis-1/3.9"
-                >
-                  <div className="p-1" onClick={() => handleCardClick(item)}>
-                    <Card2 item={item} />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
+            {loading ? (
+              <div className="-ml-1 flex gap-4">
+                <Loader />
+                <Loader className="md:block hidden" />
+                <Loader className="hidden lg:block" />
+                <Loader className="hidden  2xl:block" />
+              </div>
+            ) : (
+              <CarouselContent className="-ml-1">
+                {data.map((item, index) => (
+                  <CarouselItem
+                    key={index}
+                    className="pl-1 basis-1/1 md:basis-1/2.2  lg:basis-1/2.9 2xl:basis-1/3.9"
+                  >
+                    <div className="p-1" onClick={() => handleCardClick(item)}>
+                      <Card2 item={item} />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            )}
+
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>

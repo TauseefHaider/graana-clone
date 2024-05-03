@@ -60,18 +60,18 @@ export default function SidelogoWhite() {
                           Buy a residential Property
                         </Link>
                         <Link
-                          to="#"
+                          to="buy/commercial"
                           className="text-[#37474f] block pl-4 py-1 text-[10px] hover:bg-gray-100"
                         >
-                          Buy a commerial Property
+                          Buy a commercial Property
                         </Link>
 
-                        <a
-                          href="#"
+                        <Link
+                          to="buy/plot"
                           className="text-[#37474f] block pl-4 py-1 text-[10px] hover:bg-gray-100"
                         >
                           Buy a plot
-                        </a>
+                        </Link>
                       </div>
                     </AccordionContent>
                   </AccordionItem>
@@ -87,25 +87,25 @@ export default function SidelogoWhite() {
                     </AccordionTrigger>
                     <AccordionContent>
                       <div className="w-[220px]">
-                        <a
-                          href="#"
+                        <Link
+                          to="rent/residential"
                           className="text-[#37474f] block pl-4 py-1 text-[10px] hover:bg-gray-100"
                         >
                           Rent a residential Property
-                        </a>
-                        <a
-                          href="#"
+                        </Link>
+                        <Link
+                          to="rent/commercial"
                           className="text-[#37474f] block pl-4 py-1 text-[10px] hover:bg-gray-100"
                         >
-                          Rent a commerial Property
-                        </a>
+                          Rent a commercial Property
+                        </Link>
 
-                        <a
-                          href="#"
+                        <Link
+                          to="list/home"
                           className="text-[#37474f] block pl-4 py-1 text-[10px] hover:bg-gray-100"
                         >
                           List my home for Rent
-                        </a>
+                        </Link>
                       </div>
                     </AccordionContent>
                   </AccordionItem>
@@ -127,12 +127,12 @@ export default function SidelogoWhite() {
                         >
                           Sell a Property
                         </Link>
-                        <a
-                          href="#"
+                        <Link
+                          to="rent/property"
                           className="text-[#37474f] block pl-4 py-1 text-[10px] hover:bg-gray-100"
                         >
                           Rentout a Property
-                        </a>
+                        </Link>
                       </div>
                     </AccordionContent>
                   </AccordionItem>

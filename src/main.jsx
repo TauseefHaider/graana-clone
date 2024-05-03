@@ -15,6 +15,7 @@ import SellProperty from "./pages/SellProperty.jsx";
 import RentProperty from "./pages/RentProperty.jsx";
 import CardsDetails from "./pages/CardsDetails.jsx";
 import ListRentHome from "./pages/ListRentHome.jsx";
+import SearchCards from "./components/SearchCards.jsx";
 
 const router = createBrowserRouter([
   {
@@ -62,7 +63,7 @@ const router = createBrowserRouter([
         element: <ListRentHome />,
       },
       {
-        path: "search/item",
+        path: "search/city",
         element: <SearchCards />,
       },
     ],

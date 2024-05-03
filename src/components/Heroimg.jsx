@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import mainimg from "../assets/Main_img.webp";
 import { Button } from "../components/ui/button";
-import search from "../assets/search.svg";
+import searchimg from "../assets/search.svg";
+import { useAds } from "../context";
+import { useNavigate } from "react-router-dom";
 
 export default function Heroimg() {
   const [type, setType] = useState("Sell");
+  const [search, setSearch] = useState("");
+  const { handleType, handleSearch } = useAds();
+  const navigate = useNavigate();
 
   const btn = [
     {
@@ -16,6 +21,17 @@ export default function Heroimg() {
       text: "RENT",
     },
   ];
+
+  const handleSearchClick = () => {
+    navigate("search/city");
+  };
+
+  useEffect(() => {
+    handleType(type);
+  }, [type]);
+  useEffect(() => {
+    handleSearch(search);
+  }, [search]);
 
   return (
     <div className="relative">
@@ -52,11 +68,16 @@ export default function Heroimg() {
           <div className="flex w-full bg-white rounded-xl md:rounded-2xl h-[60px] md:h-[80px] pl-[15px] ">
             <input
               type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by city or area"
               className="flex flex-1 focus:border-0 focus:outline-none text-slate-800  px-[14px] text-sm"
             />
-            <div className="md:w-[80px] w-[60px] flex items-center justify-center rounded-r-lg bg-[#e85451] cursor-pointer">
-              <img src={search} alt="" />
+            <div
+              onClick={handleSearchClick}
+              className="md:w-[80px] w-[60px] flex items-center justify-center rounded-r-lg bg-[#e85451] cursor-pointer"
+            >
+              <img src={searchimg} alt="" />
             </div>
           </div>
         </div>
