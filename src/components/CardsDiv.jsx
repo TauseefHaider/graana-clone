@@ -27,6 +27,7 @@ export default function CardsDiv({
   const [selectedBtn, setSelectedBtn] = useState(buttons[defaultSelectedIndex]);
   const [selectedCard, setSelectedCard] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [rentCity, setRentCity] = useState("Islamabad");
 
   const handleCardClick = (item) => {
     let cardData = [];

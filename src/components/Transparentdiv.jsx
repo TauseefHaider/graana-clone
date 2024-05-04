@@ -57,9 +57,11 @@ export default function Transparentdiv() {
                   <p className="text-[14px]">Live where you</p>
                   <p className="text-[14px]">can love</p>
                 </div>
-                <Button className="text-[12px] bg-white text-[#37474F] shadow-none border border-black hover:bg-gray-100">
-                  FIND RENTALS
-                </Button>
+                <Link to="rent/residential">
+                  <Button className="text-[12px] bg-white text-[#37474F] shadow-none border border-black hover:bg-gray-100">
+                    FIND RENTALS
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

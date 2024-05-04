@@ -55,7 +55,7 @@ const router = createBrowserRouter([
         element: <RentProperty />,
       },
       {
-        path: "details",
+        path: "details/:id",
         element: <CardsDetails />,
       },
       {

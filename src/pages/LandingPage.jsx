@@ -11,11 +11,10 @@ import blog1 from "../assets/blog1.webp";
 import blog2 from "../assets/blog2.webp";
 import Heroappdiv from "../components/Heroappdiv";
 import { useAds } from "../context";
-import { useEffect } from "react";
+import RecentPropertiesForRent from "../components/RecentPropertiesForRent";
+import RecentPropertiesForSell from "../components/RecentPropertiesForSell";
 
 export default function LandingPage() {
-  const { ads, selectedBtn } = useAds();
-
   const blog = [
     {
       pic: blog1,
@@ -42,13 +41,6 @@ export default function LandingPage() {
       date: "March 1, 2024 - 7 min read",
     },
   ];
-  const SellProperty = ads.filter((data) => data.propertyFor === "Sell");
-  const buttons = ["Islamabad", "Rawalpind", "Lahore", "Karachi", "Peshawar"];
-  const filteredData = SellProperty.filter((data) => data.city === selectedBtn);
-  const RentProperty = ads.filter((data) => data.propertyFor === "Rent");
-  const filteredDataRent = RentProperty.filter(
-    (data) => data.city === selectedBtn
-  );
 
   return (
     <div>
@@ -62,19 +54,9 @@ export default function LandingPage() {
       <Heromap />
       {/* City cards */}
 
-      <CardsDiv
-        data={filteredDataRent}
-        title="Recent Properties for Rent"
-        buttons={buttons}
-        defaultSelectedIndex={0}
-      />
+      <RecentPropertiesForRent />
 
-      <CardsDiv
-        data={filteredData}
-        title="Recent Properties for Sale"
-        buttons={buttons}
-        defaultSelectedIndex={0}
-      />
+      <RecentPropertiesForSell />
       {/* blogs div */}
       <Blogsdiv data={blog} />
       <Heroappdiv />
