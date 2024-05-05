@@ -3,7 +3,7 @@ import mainimg from "../assets/Main_img.webp";
 import { Button } from "../components/ui/button";
 import searchimg from "../assets/search.svg";
 import { useAds } from "../context";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Heroimg() {
   const [type, setType] = useState("Sell");
@@ -25,13 +25,6 @@ export default function Heroimg() {
   const handleSearchClick = () => {
     navigate("search/city");
   };
-
-  useEffect(() => {
-    handleType(type);
-  }, [type]);
-  useEffect(() => {
-    handleSearch(search);
-  }, [search]);
 
   return (
     <div className="relative">
@@ -73,12 +66,12 @@ export default function Heroimg() {
               placeholder="Search by city or area"
               className="flex flex-1 focus:border-0 focus:outline-none text-slate-800  px-[14px] text-sm"
             />
-            <div
-              onClick={handleSearchClick}
+            <Link
+              to={`${type}/${search}`}
               className="md:w-[80px] w-[60px] flex items-center justify-center rounded-r-lg bg-[#e85451] cursor-pointer"
             >
               <img src={searchimg} alt="" />
-            </div>
+            </Link>
           </div>
         </div>
       </div>

@@ -2,34 +2,16 @@ import React from "react";
 import Card2 from "./Card";
 import { useAds } from "../context";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Loader from "./Loader";
 
 export default function SearchCards() {
-  const { ads, type, search, handleSelectedCardData } = useAds();
-  const [selectedCard, setSelectedCard] = useState([]);
-  const navigate = useNavigate();
+  const { type, search } = useParams();
   const [loading, setLoading] = useState(true);
+  const { ads } = useAds();
 
   const filterdata = ads.filter((data) => data.propertyFor === type);
   const data = filterdata.filter((data) => data.city === search);
-
-  const handleCardClick = (item) => {
-    let cardData = [];
-    if (item) {
-      cardData.push({ item });
-    }
-    setSelectedCard(cardData);
-  };
-
-  useEffect(() => {
-    if (selectedCard.length > 0) {
-      const selectedItem = selectedCard[0].item;
-      handleSelectedCardData(selectedItem);
-
-      navigate("/details");
-    }
-  }, [selectedCard]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -62,9 +44,9 @@ export default function SearchCards() {
         <div className="flex gap-4 flex-wrap">
           {data.map((item, index) => (
             <div key={index} className="flex ">
-              <div className="p-1" onClick={() => handleCardClick(item)}>
+              <Link to={`/details/${item.id}`} className="p-1">
                 <Card2 item={item} />
-              </div>
+              </Link>
             </div>
           ))}
         </div>

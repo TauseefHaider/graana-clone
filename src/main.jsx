@@ -63,7 +63,7 @@ const router = createBrowserRouter([
         element: <ListRentHome />,
       },
       {
-        path: "search/city",
+        path: ":type/:search",
         element: <SearchCards />,
       },
     ],
