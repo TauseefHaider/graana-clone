@@ -1,7 +1,5 @@
 import React from "react";
 
-import CardsDiv from "../components/CardsDiv";
-import { useAds } from "../context";
 import PropertiesInIslamabad from "../components/PropertiesInIslamabad";
 import SellResRawalPindi from "../components/SellResRawalpindi";
 import SellResLahore from "../components/SellResLahore";

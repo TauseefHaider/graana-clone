@@ -4,8 +4,7 @@ import Heroinvest from "../components/Heroinvest";
 import Heroimg from "../components/Heroimg";
 import Transparentdiv from "../components/Transparentdiv";
 import Heromap from "../components/Heromap";
-import CardsDiv from "../components/CardsDiv";
-import homepic from "../assets/home.webp";
+
 import Blogsdiv from "../components/Blogsdiv";
 import blog1 from "../assets/blog1.webp";
 import blog2 from "../assets/blog2.webp";

@@ -24,31 +24,44 @@ export default function PropertiesCarousel({ data }) {
   }, []);
 
   return (
-    <Carousel className="w-full max-w-full">
+    <div>
       {loading ? (
-        <div className="-ml-1 flex gap-4">
-          <Loader />
-          <Loader className="md:block hidden" />
-          <Loader className="hidden lg:block" />
-          <Loader className="hidden  2xl:block" />
-        </div>
-      ) : (
-        <CarouselContent className="-ml-1">
-          {data.map((item, index) => (
-            <CarouselItem
-              key={index}
-              className="pl-1 basis-1/1 md:basis-1/2.2  lg:basis-1/2.9 2xl:basis-1/3.9"
-            >
-              <Link to={`/details/${item.id}`} className="p-1">
-                <Card2 item={item} />
-              </Link>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      )}
+        <Carousel className="w-full max-w-full">
+          <CarouselContent className="-ml-1">
+            {[...Array(10)].map((_, index) => (
+              <CarouselItem
+                key={index}
+                className="pl-1 basis-1/1 md:basis-1/2.2  lg:basis-1/2.9 2xl:basis-1/3.9"
+              >
+                <div className="p-1">
+                  <Loader />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
 
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      ) : (
+        <Carousel className="w-full max-w-full">
+          <CarouselContent className="-ml-1">
+            {data.map((item, index) => (
+              <CarouselItem
+                key={index}
+                className="pl-1 basis-1/1 md:basis-1/2.2  lg:basis-1/2.9 2xl:basis-1/3.9"
+              >
+                <Link to={`/details/${item.id}`} className="p-1">
+                  <Card2 item={item} />
+                </Link>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      )}
+    </div>
   );
 }

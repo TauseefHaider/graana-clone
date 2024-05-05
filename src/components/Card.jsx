@@ -8,9 +8,9 @@ import { useAds } from "../context";
 export default function Card2({ item }) {
   return (
     <Card className=" rounded cursor-pointer">
-      <CardContent className="flex w-[289px] flex-col aspect-square p-0 text-[#37474F]">
+      <CardContent className="flex md:w-[289px] w-[250px] flex-col aspect-square p-0 text-[#37474F]">
         <img
-          className=" object-cover w-[289px]  h-[161px] "
+          className=" object-cover md:w-[289px] w-[250px]  h-[161px] "
           src={item.imgUrl}
           alt=""
         />

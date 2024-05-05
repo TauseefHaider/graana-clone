@@ -70,7 +70,7 @@ export default function CardsDetails() {
           </div>
         </div>
       ) : (
-        <p>Loading</p>
+        <p></p>
       )}
     </div>
   );
