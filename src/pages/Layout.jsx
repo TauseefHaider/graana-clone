@@ -10,27 +10,9 @@ import Mblheader from "./Mblheader";
 
 function Layout() {
   const [ads, setAds] = useState([]);
-  const [selectedCard, setSelectedCard] = useState([]);
-  const [selectedBtn, setSelectedBtn] = useState("");
-  const [type, setType] = useState("Sell");
-  const [search, setSearch] = useState("");
-
-  const handleType = (item) => {
-    setType(item);
-  };
-  const handleSearch = (item) => {
-    setSearch(item);
-  };
-
-  const handleSelectedBtn = (item) => {
-    setSelectedBtn(item);
-  };
 
   const handleSubmitAds = (ads) => {
     setAds((prev) => [ads, ...prev]);
-  };
-  const handleSelectedCardData = (selectedCard) => {
-    setSelectedCard(selectedCard);
   };
 
   const getDataFromFirestore = async () => {
@@ -60,14 +42,6 @@ function Layout() {
       value={{
         ads,
         handleSubmitAds,
-        selectedCard,
-        handleSelectedCardData,
-        selectedBtn,
-        handleSelectedBtn,
-        type,
-        handleType,
-        search,
-        handleSearch,
       }}
     >
       <Header />

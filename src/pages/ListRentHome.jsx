@@ -430,8 +430,8 @@ export default function ListRentHome() {
                 What is the size of your property?
               </p>
               <Input
-                type="number"
-                placeholder="0"
+                type="text"
+                placeholder="00 Marla"
                 className="w-[300px] md:w-[400px]"
                 value={size}
                 onChange={(e) => setSize(e.target.value)}

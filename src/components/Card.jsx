@@ -26,7 +26,7 @@ export default function Card2({ item }) {
           <img src={bath} alt="" />
           <p>{item.bathRoom}</p>
           <img src={area} alt="" />
-          <p>{item.size} Marla</p>
+          <p>{item.size} </p>
         </div>
         <div className="text-[14px] m-2">
           <p>

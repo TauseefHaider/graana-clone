@@ -5,7 +5,7 @@ import PropertiesCarousel from "./PropertiesCarousel";
 
 export default function RecentPropertiesForRent() {
   const { ads } = useAds();
-  const buttons = ["Islamabad", "Rawalpind", "Lahore", "Karachi", "Peshawar"];
+  const buttons = ["Islamabad", "Rawalpindi", "Lahore", "Karachi", "Peshawar"];
   const [city, setCity] = useState("Islamabad");
   //create city handler function and pass that fun
   const RentData = ads.filter((data) => data.propertyFor === "Rent");

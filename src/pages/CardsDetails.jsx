@@ -44,7 +44,7 @@ export default function CardsDetails() {
                 <img src={bath} alt="" /> <p>{selectedCard.bathRoom}</p>
               </div>
               <div className="flex gap-2 items-center">
-                <img src={area} alt="" /> <p>{selectedCard.size} Marla</p>
+                <img src={area} alt="" /> <p>{selectedCard.size} </p>
               </div>
               <p>{selectedCard.type}</p>
             </div>
