@@ -62,7 +62,13 @@ export default function Heroimg() {
             <input
               type="text"
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(e) => {
+                const inputValue = e.target.value;
+                const formattedValue =
+                  inputValue.charAt(0).toUpperCase() +
+                  inputValue.slice(1).toLowerCase();
+                setSearch(formattedValue);
+              }}
               placeholder="Search by city or area"
               className="flex flex-1 focus:border-0 focus:outline-none text-slate-800  px-[14px] text-sm"
             />

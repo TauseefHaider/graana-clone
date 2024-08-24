@@ -160,10 +160,6 @@ export default function Header() {
         </Button>
       </div>
       <div className="flex justify-end items-center md:[60px] lg:mr-[108px] gap-3">
-        <Button className="bg-inherit text-[#37474f] shadow-none hover:bg-inherit font-semibold">
-          WANTED
-        </Button>
-
         {singIn && (
           <AlertDialog className="px-3">
             <AlertDialogTrigger
