@@ -10,6 +10,11 @@ export default function CardsDetails() {
   const { id } = useParams();
   const { ads } = useAds();
   const [selectedCard, setSelectedCard] = useState(null);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const toggleFavorite = () => {
+    setIsFavorite(!isFavorite);
+  };
 
   useEffect(() => {
     const selected = ads.find((item) => item.id === id);
@@ -20,11 +25,36 @@ export default function CardsDetails() {
     <div className="flex items-center justify-center text-[#37474F]">
       {selectedCard ? (
         <div className="xl:w-[1100px] lg:w-[900px] md:w-[700px] flex flex-col gap-8 mt-[50px]">
+          <div className="relative">
           <img
             className="xl:w-[1100px] lg:w-[890px] object-cover md:rounded-2xl lg:h-[400px] h-[300px]"
             src={selectedCard.imgUrl}
             alt=""
           />
+          <button
+            className={`absolute bottom-3 left-3 p-1 rounded-full ${
+              isFavorite ? "text-[#e85451] " : "text-white "
+            }`}
+            onClick={toggleFavorite}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill={isFavorite ? "currentColor" : "none"}
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.682l1.318-1.364a4.5 4.5 0 116.364 6.364L12 21.682l-7.682-7.682a4.5 4.5 0 010-6.364z"
+              />
+            </svg>
+          </button>
+          </div>
+          
+
           <div className="px-4 flex flex-col gap-4">
             <div className="flex justify-between items-center ">
               <p className="lg:text-[28px] md:text-[20px] font-semibold">
@@ -46,7 +76,10 @@ export default function CardsDetails() {
               <div className="flex gap-2 items-center">
                 <img src={area} alt="" /> <p>{selectedCard.size} </p>
               </div>
+              
+              <div className="flex items-center gap-2"> <div className="w-[13px] h-[13px] bg-[#e85451] rounded-sm"></div>
               <p>{selectedCard.type}</p>
+          </div>
             </div>
             <div className="flex items-center gap-3 font-semibold">
               <p className="text-[14px]">PKR</p>

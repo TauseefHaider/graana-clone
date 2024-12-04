@@ -51,9 +51,9 @@ export default function PropertiesCarousel({ data }) {
                 key={index}
                 className="pl-1 basis-1/1 md:basis-1/2.2  lg:basis-1/2.9 2xl:basis-1/4.5"
               >
-                <Link to={`/details/${item.id}`} className="p-1">
+               
                   <Card2 item={item} />
-                </Link>
+                
               </CarouselItem>
             ))}
           </CarouselContent>
