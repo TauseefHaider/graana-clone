@@ -71,6 +71,7 @@ export default function RentProperty() {
 
   const { handleSubmitAds, ads } = useAds();
   const navigate = useNavigate();
+
   const handleImageChange = (e) => {
     const newImages = Array.from(e.target.files); 
     setImages((prevImages) => [...prevImages, ...newImages]); 
@@ -572,6 +573,7 @@ export default function RentProperty() {
               <Input
                 type="tel"
                 className="w-[300px] md:w-[400px]"
+                placeholder="Your Contact Number"
                 value={contact}
                 onChange={(e) => setContact(e.target.value)}
               />

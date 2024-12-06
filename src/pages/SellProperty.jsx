@@ -60,7 +60,7 @@ export default function SellProperty() {
   const [bathRoom, setBathRoom] = useState("");
   const [propertyName, setPropertyName] = useState("");
   const [condition, setCondition] = useState("");
-  const [img, setImg] = useState(null);
+  const [images, setImages] = useState([]);
   const [contact, setContact] = useState("");
   const [type, setType] = useState("");
   const [name, setName] = useState("");
@@ -71,6 +71,19 @@ export default function SellProperty() {
 
   const { handleSubmitAds, ads } = useAds();
   const navigate = useNavigate();
+  
+  const handleImageChange = (e) => {
+    const newImages = Array.from(e.target.files); 
+    setImages((prevImages) => [...prevImages, ...newImages]); 
+    e.target.value = "";
+  };
+
+  const handleRemoveImage = (index) => {
+    const updatedImages = images.filter((_, i) => i !== index); 
+    setImages(updatedImages); 
+  };
+
+
   const btnType = [
     {
       img: house,
@@ -216,6 +229,8 @@ export default function SellProperty() {
 
   const typebtns = btnType.filter((data) => data.propertyT === propertyType);
 
+  
+
   const add = async (e) => {
     e.preventDefault();
 
@@ -231,19 +246,26 @@ export default function SellProperty() {
       !condition ||
       !contact ||
       !name ||
-      !img
+      !images
     ) {
       alert("All fields are required");
       return;
     }
 
-    let url;
+    const handleImageUpload = async (images) => {
+      const urls = []; 
 
-    if (img) {
-      const imgRef = ref(storage, `${img.name}`);
-      await uploadBytes(imgRef, img);
-      url = await getDownloadURL(imgRef);
-    }
+      for (let img of images) {
+        const imgRef = ref(storage, `images/${img.name}`); // Store images with a unique path
+        await uploadBytes(imgRef, img); // Upload image to Firebase Storage
+        const url = await getDownloadURL(imgRef); // Get the download URL
+        urls.push(url); // Add the URL to the array
+      }
+    
+      return urls; // Return an array of image URLs
+    };
+
+    const imgUrls = await handleImageUpload(images);
 
     handleSubmitAds({
       propertyFor,
@@ -255,7 +277,7 @@ export default function SellProperty() {
       bedRoom,
       bathRoom,
       price,
-      imgUrl: url,
+      imgUrls,
       propertyName,
       condition,
       contact,
@@ -272,7 +294,7 @@ export default function SellProperty() {
       bedRoom,
       bathRoom,
       price,
-      imgUrl: url,
+      imgUrls,
       propertyName,
       condition,
       contact,
@@ -295,6 +317,7 @@ export default function SellProperty() {
     "9",
     "10+",
   ];
+
 
   const propertyfor = [
     {
@@ -506,14 +529,51 @@ export default function SellProperty() {
               <Input
                 type="file"
                 className="w-[300px] md:w-[400px]"
-                onChange={(e) => setImg(e.target.files[0])}
+                onChange={handleImageChange}
               />
+              <div className="mt-3">
+        {images.length > 0 && (
+          <div className="flex gap-2">
+            {images.map((file, index) => (
+              <div key={index} className="relative w-[100px] h-[100px]">
+                <img
+                  src={URL.createObjectURL(file)} // Create an object URL for preview
+                  alt={`preview ${index}`}
+                  className="w-full h-full object-cover rounded-md"
+                />
+                
+                {/* Cross Icon for Removing Image */}
+                <button
+                  onClick={() => handleRemoveImage(index)} // Call handleRemoveImage on click
+                  className="absolute top-1 right-1 text-white bg-black bg-opacity-50 rounded-full p-1"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    className="w-4 h-4"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
             </div>
             <div className="flex flex-col gap-3 ">
               <p className="font-semibold">Tell us how to contact you</p>
               <Input
                 type="tel"
                 className="w-[300px] md:w-[400px]"
+                placeholder="Your Contact Number"
                 value={contact}
                 onChange={(e) => setContact(e.target.value)}
               />
@@ -593,3 +653,4 @@ export default function SellProperty() {
     </>
   );
 }
+
