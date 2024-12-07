@@ -256,13 +256,13 @@ export default function RentProperty() {
       const urls = []; 
 
       for (let img of images) {
-        const imgRef = ref(storage, `images/${img.name}`); // Store images with a unique path
-        await uploadBytes(imgRef, img); // Upload image to Firebase Storage
-        const url = await getDownloadURL(imgRef); // Get the download URL
-        urls.push(url); // Add the URL to the array
+        const imgRef = ref(storage, `images/${img.name}`); 
+        await uploadBytes(imgRef, img); 
+        const url = await getDownloadURL(imgRef); 
+        urls.push(url); 
       }
     
-      return urls; // Return an array of image URLs
+      return urls; 
     };
 
     const imgUrls = await handleImageUpload(images);
@@ -537,14 +537,12 @@ export default function RentProperty() {
             {images.map((file, index) => (
               <div key={index} className="relative w-[100px] h-[100px]">
                 <img
-                  src={URL.createObjectURL(file)} // Create an object URL for preview
+                  src={URL.createObjectURL(file)} 
                   alt={`preview ${index}`}
                   className="w-full h-full object-cover rounded-md"
                 />
-                
-                {/* Cross Icon for Removing Image */}
                 <button
-                  onClick={() => handleRemoveImage(index)} // Call handleRemoveImage on click
+                  onClick={() => handleRemoveImage(index)} 
                   className="absolute top-1 right-1 text-white bg-black bg-opacity-50 rounded-full p-1"
                 >
                   <svg

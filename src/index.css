@@ -5,4 +5,41 @@
 
 * {
   font-family: "Poppins", sans-serif;
+  /* Tailwind-compatible custom styles for Swiper navigation */
+.custom-swiper .swiper-button-next,
+.custom-swiper .swiper-button-prev {
+  color: #f2f2f2; /* Custom arrow color */
+  width: 2rem; /* Adjust width for arrow size */
+  height: 2rem;
+}
+
+.custom-swiper .swiper-button-next:hover,
+.custom-swiper .swiper-button-prev:hover {
+  color: #f2f2f2; /* Hover color for arrows */
+}
+
+.custom-swiper .swiper-button-next svg,
+.custom-swiper .swiper-button-prev svg {
+  width: 1rem !important; /* Adjust the size of the arrow itself */
+  height: 1rem !important;
+   /* Ensure no scaling is applied */
+}
+
+.custom-swiper .swiper-pagination-bullet {
+  background-color: #37474f; /* Set your desired color for the dots */
+}
+
+/* Change color of the active pagination dot */
+.custom-swiper .swiper-pagination-bullet-active {
+  background-color: #f2f2f2; /* Set color for the active dot */
+}
+
+.custom-swiper .swiper-button-next {
+  right: 0.5rem; /* Adjust the right margin */
+}
+
+.custom-swiper .swiper-button-prev {
+  left: 0.5rem; /* Adjust the left margin */
+}
+
 }
