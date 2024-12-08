@@ -20,13 +20,13 @@ export default function Card2({ item }) {
   return (
     <Card className="rounded cursor-pointer">
       <CardContent className="flex md:w-[289px] w-[250px] flex-col aspect-square p-0 text-[#37474F]">
-        <div className="relative">
+        <div className="relative"> 
           <Swiper
             modules={[Navigation, Pagination]}
             navigation
             pagination={{ clickable: true }}
             
-            className="custom-swiper md:w-[289px] w-[250px] h-[161px]"
+            className="custom-swiper md:w-[290px] w-[250px] h-[161px]"
           >
             {item.imgUrls.map((url, index) => (
               <SwiperSlide key={index}>
