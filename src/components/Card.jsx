@@ -26,7 +26,7 @@ export default function Card2({ item }) {
             navigation
             pagination={{ clickable: true }}
             
-            className="custom-swiper md:w-[290px] w-[250px] h-[161px]"
+            className="custom-swiper md:w-[289px] w-[250px] h-[161px]"
           >
             {item.imgUrls.map((url, index) => (
               <SwiperSlide key={index}>
