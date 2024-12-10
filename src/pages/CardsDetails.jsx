@@ -25,12 +25,39 @@ export default function CardsDetails() {
     <div className="flex items-center justify-center text-[#37474F]">
       {selectedCard ? (
         <div className="xl:w-[1100px] lg:w-[900px] md:w-[700px] flex flex-col gap-8 mt-[50px]">
-          <div className="relative">
-          <img
-            className="xl:w-[1100px] lg:w-[890px] object-cover md:rounded-2xl lg:h-[400px] h-[300px]"
-            src={selectedCard.imgUrl}
-            alt=""
-          />
+           <div className="relative flex gap-1">
+            
+            <div className="flex-grow">
+              <img
+                className="w-full object-cover md:rounded-l-2xl lg:h-[400px] h-[300px]"
+                src={selectedCard.imgUrls[0]}
+                alt="Main Image"
+              />
+            </div>
+
+            <div className="flex flex-col gap-1 w-[30%]">
+              
+                <div  className="relative rounded-r-lg">
+                  <img
+                    className="w-full h-[calc((400px-3px)/2)] object-cover rounded-tr-lg "
+                    src={selectedCard.imgUrls[1]}
+                    alt={`Side Image`}
+                  />
+                </div>
+
+              {selectedCard.imgUrls.length > 3 && (
+                <div className="relative">
+                  <img
+                    className="w-full h-[calc((400px-3px)/2)] object-cover rounded-br-lg opacity-50"
+                    src={selectedCard.imgUrls[2]}
+                    alt="More Images"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-lg font-semibold rounded-br-lg">
+                    +{selectedCard.imgUrls.length - 3}
+                  </div>
+                </div>
+              )}
+            </div>
           <button
             className={`absolute bottom-3 left-3 p-1 rounded-full ${
               isFavorite ? "text-[#e85451] " : "text-white "

@@ -19,7 +19,7 @@ function Layout() {
     try {
       const querySnapshot = await getDocs(collection(firestore, "users"));
       const adsData = [];
-      qerySnapshot.forEach((doc) => {
+      querySnapshot.forEach((doc) => {
         const data = doc.data();
 
         adsData.push({ id: doc.id, ...data });
