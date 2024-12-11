@@ -41,7 +41,7 @@ export default function Card2({ item }) {
 
           {/* Heart Icon */}
           <button
-            className={`absolute bottom-2 right-2 p-1 rounded-full ${
+            className={`absolute bottom-2 right-2 z-10 p-1 rounded-full ${
               isFavorite ? "text-[#e85451]" : "text-white"
             }`}
             onClick={toggleFavorite}
